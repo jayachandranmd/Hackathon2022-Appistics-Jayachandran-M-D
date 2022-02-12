@@ -16,54 +16,56 @@ class OnboardingPage3 extends StatelessWidget {
                 height: 101.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 6.h),
+                padding: EdgeInsets.symmetric(horizontal: 61.w),
                 child: Image.asset(
                   "assets/images/o3.png",
                   height: 280.h,
                 ),
               ),
-              SizedBox(
-                height: 80.h,
-              ),
+              SizedBox(height: 48.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 144.w),
                 child: Text(
                   "Services",
                   style: TextStyle(
-                      fontFamily: "OpenSans-Hebrew",
+                      fontFamily: 'OpenSans-Hebrew',
                       fontWeight: FontWeight.bold,
                       fontSize: 15.sp),
                 ),
               ),
-              SizedBox(
-                height: 29.h,
-              ),
+              SizedBox(height: 22.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                padding: EdgeInsets.symmetric(horizontal: 26.w),
                 child: Text(
-                  "    Provide 360-degree professional\n development for the students through\n Industry & Corporate Exposure, Career\n     Guidance and Work Experience",
-                  style: TextStyle(fontSize: 15.sp),
+                  "          Provide 360-degree professional development for students through Industry\n          Exposure and Career Guidance",
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    fontFamily: 'OpenSans-Hebrew',
+                  ),
                 ),
               ),
-              SizedBox(
-                height: 64.h,
-              ),
+              SizedBox(height: 135.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 43.w),
-                child: Container(
-                    width: 274.w,
-                    height: 48.h,
-                    decoration: BoxDecoration(
-                        color: const Color.fromRGBO(57, 73, 160, 1),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: const Center(
-                        child: Text('Get Started',
-                            style: TextStyle(
+                padding: EdgeInsets.only(left: 220.w, top: 45.h),
+                child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 33.h,
+                      width: 89.w,
+                      decoration: BoxDecoration(
+                          color: const Color.fromRGBO(57, 73, 160, 1),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Center(
+                        child: Text(
+                          "Get Started >",
+                          style: TextStyle(
+                              fontSize: 11.sp,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "OpenSans-Hebrew",
-                            )))),
-              )
+                              fontFamily: "OpenSans-Hebrew"),
+                        ),
+                      ),
+                    )),
+              ),
             ],
           ),
         ),

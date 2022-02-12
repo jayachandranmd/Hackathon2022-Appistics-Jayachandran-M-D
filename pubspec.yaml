@@ -11,6 +11,7 @@ environment:
 dependencies:
   build_runner: ^2.1.7
   cupertino_icons: ^1.0.2
+  dots_indicator: ^2.0.0
   flutter:
     sdk: flutter
   flutter_gen: ^4.1.5
@@ -19,7 +20,9 @@ dependencies:
   flutter_native_splash: ^2.0.2
   flutter_screenutil: ^5.2.0
   flutter_svg: ^1.0.3
+  introduction_screen: ^2.1.0
   sizer: ^2.0.15
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_lints: ^1.0.0

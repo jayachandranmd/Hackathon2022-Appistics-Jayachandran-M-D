@@ -1,4 +1,3 @@
-import 'package:ccpc/screens/onboarding/onboarding_page2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,20 +34,20 @@ class OnboardingPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 29.h),
+              SizedBox(height: 22.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: RichText(
                   text: TextSpan(
                       text:
-                          "An IT & Management Consulting & Advisory \n                 Services company with a \n",
+                          "   An IT & Management Consulting & Advisory \n                    Services company with a \n",
                       style: TextStyle(
                           fontSize: 15.sp,
                           color: Colors.black,
                           fontFamily: 'OpenSans-Hebrew'),
                       children: <TextSpan>[
                         TextSpan(
-                          text: "                            'Social Cause'",
+                          text: "                              'Social Cause'",
                           style: TextStyle(
                               fontFamily: 'OpenSans-Hebrew',
                               fontSize: 15.sp,
@@ -59,50 +58,10 @@ class OnboardingPage extends StatelessWidget {
                       ]),
                 ),
               ),
-              SizedBox(height: 116.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 156.w),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context, FadeRoute(page: const OnboardingPage2()));
-                  },
-                  child: const Icon(Icons.arrow_forward_ios_rounded,
-                      color: Colors.white),
-                  style: ElevatedButton.styleFrom(
-                    shape: const CircleBorder(),
-                    padding: const EdgeInsets.all(15),
-                    primary: const Color.fromRGBO(57, 73, 160, 1),
-                  ),
-                ),
-              )
             ],
           ),
         ),
       ),
     );
   }
-}
-
-class FadeRoute extends PageRouteBuilder {
-  final Widget page;
-  FadeRoute({required this.page})
-      : super(
-          pageBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) =>
-              page,
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) =>
-              FadeTransition(
-            opacity: animation,
-            child: child,
-          ),
-        );
 }

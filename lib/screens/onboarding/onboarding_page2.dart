@@ -1,4 +1,3 @@
-import 'package:ccpc/screens/onboarding/onboarding_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +22,7 @@ class OnboardingPage2 extends StatelessWidget {
                   height: 280.h,
                 ),
               ),
-              SizedBox(height: 64.h),
+              SizedBox(height: 48.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 153.w),
                 child: Text(
@@ -38,57 +37,17 @@ class OnboardingPage2 extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 29.w),
                 child: Text(
-                  "    Helping millions of students for free,\n to get them job/ start-up/ business-ready,\n in time, to save on their 'struggle time' to\n   get a relevant job after their graduation.",
+                  "Helping millions of students for free, to get \n     them job/ business-ready after their\n                            graduation.",
                   style: TextStyle(
                     fontSize: 15.sp,
                     fontFamily: 'OpenSans-Hebrew',
                   ),
                 ),
               ),
-              SizedBox(height: 71.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 156.w),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context, FadeRoute(page: const OnboardingPage3()));
-                  },
-                  child: const Icon(Icons.arrow_forward_ios_rounded,
-                      color: Colors.white),
-                  style: ElevatedButton.styleFrom(
-                    shape: const CircleBorder(),
-                    padding: const EdgeInsets.all(15),
-                    primary: const Color.fromRGBO(57, 73, 160, 1),
-                  ),
-                ),
-              )
             ],
           ),
         ),
       ),
     );
   }
-}
-
-class FadeRoute extends PageRouteBuilder {
-  final Widget page;
-  FadeRoute({required this.page})
-      : super(
-          pageBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) =>
-              page,
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) =>
-              FadeTransition(
-            opacity: animation,
-            child: child,
-          ),
-        );
 }
