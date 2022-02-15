@@ -1,4 +1,3 @@
-import 'package:ccpc/screens/auth/signup.dart';
 import 'package:ccpc/screens/onboarding/onboarding_page1.dart';
 import 'package:ccpc/screens/onboarding/onboarding_page2.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +26,7 @@ class _OnBoardingState extends State<OnBoarding> {
         imagePadding: const EdgeInsets.all(5),
         pageColor: Colors.white,
       );
-  void goToPage3(context) => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const SignupPgae()),
-      );
+
   PageController pageController = PageController();
   @override
   Widget build(BuildContext context) {
@@ -73,7 +70,6 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
             skipFlex: 0,
             nextFlex: 0,
-            onDone: () => goToPage3(context),
             dotsDecorator: DotsDecorator(
                 spacing: EdgeInsets.symmetric(horizontal: 3.w),
                 color: Colors.grey,

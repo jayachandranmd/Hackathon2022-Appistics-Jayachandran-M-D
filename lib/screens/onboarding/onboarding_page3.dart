@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingPage3 extends StatelessWidget {
@@ -44,25 +45,38 @@ class OnboardingPage3 extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 135.h),
+              SizedBox(height: 80.h),
               Padding(
-                padding: EdgeInsets.only(left: 220.w, top: 45.h),
+                padding: EdgeInsets.symmetric(horizontal: 100.w),
                 child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Modular.to.navigate('/home2');
+                    },
                     child: Container(
                       height: 33.h,
                       width: 89.w,
                       decoration: BoxDecoration(
                           color: const Color.fromRGBO(57, 73, 160, 1),
-                          borderRadius: BorderRadius.circular(10.0)),
-                      child: Center(
-                        child: Text(
-                          "Get Started >",
-                          style: TextStyle(
-                              fontSize: 11.sp,
-                              color: Colors.white,
-                              fontFamily: "OpenSans-Hebrew"),
-                        ),
+                          borderRadius: BorderRadius.circular(8.0)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
+                            child: Text(
+                              "Get Started ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11.sp,
+                                  color: Colors.white,
+                                  fontFamily: "OpenSans-Hebrew"),
+                            ),
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                            size: 13,
+                          ),
+                        ],
                       ),
                     )),
               ),
