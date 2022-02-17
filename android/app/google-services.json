@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "276628506044",
+    "project_id": "ccpcapp-57fe4",
+    "storage_bucket": "ccpcapp-57fe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276628506044:android:b9fc8857b252515d3997b9",
+        "android_client_info": {
+          "package_name": "com.example.ccpc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276628506044-q6l04aqa93m2inrb4p2bjr0nv4barm3e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ccpc",
+            "certificate_hash": "b10e78d750ce99ef11f93a1f7bd3ec2b1ae7dd9f"
+          }
+        },
+        {
+          "client_id": "276628506044-ppb1h9s4qqhro3tn5tdh6q9n1ivonosv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiZHnE_qSWERhefw0WzdKAkhHv5ttMbps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276628506044-ppb1h9s4qqhro3tn5tdh6q9n1ivonosv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

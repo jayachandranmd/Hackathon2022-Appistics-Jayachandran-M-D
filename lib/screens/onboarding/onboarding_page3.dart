@@ -50,7 +50,7 @@ class OnboardingPage3 extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 100.w),
                 child: InkWell(
                     onTap: () {
-                      Modular.to.navigate('/home2');
+                      Modular.to.navigate('/login');
                     },
                     child: Container(
                       height: 33.h,
