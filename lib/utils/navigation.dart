@@ -3,6 +3,7 @@ import 'package:ccpc/screens/auth/login.dart';
 import 'package:ccpc/screens/auth/reset_pass.dart';
 import 'package:ccpc/screens/auth/signup.dart';
 import 'package:ccpc/screens/auth/verification_page.dart';
+import 'package:ccpc/screens/home/homescreen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../screens/onboarding/onboarding.dart';
 
@@ -26,6 +27,9 @@ class BaseNavigation extends Module {
         transition: TransitionType.noTransition),
     ChildRoute('/confirm',
         child: (context, args) => const ConfirmationPage(),
+        transition: TransitionType.noTransition),
+    ChildRoute('/home',
+        child: (context, args) => const HomeScreen(),
         transition: TransitionType.noTransition),
   ];
 }

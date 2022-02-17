@@ -5,9 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import './utils/app_theme.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class CCPCApp extends StatelessWidget {
+class CCPCApp extends StatefulWidget {
   const CCPCApp({Key? key}) : super(key: key);
 
+  @override
+  State<CCPCApp> createState() => _CCPCAppState();
+}
+
+class _CCPCAppState extends State<CCPCApp> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([

@@ -1,4 +1,3 @@
-import 'package:ccpc/screens/home/homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -13,12 +12,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final TextEditingController emailController = new TextEditingController();
-  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   final _auth = FirebaseAuth.instance;
+
+  String? errorMessage;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,103 +54,111 @@ class _LoginState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 21.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 35.w),
-                  child: SizedBox(
-                    width: 290.w,
-                    height: 43.h,
-                    child: TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return ("Please enter your Email");
-                        }
-                        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                            .hasMatch(value)) {
-                          return ("Please enter a valid Email");
-                        }
-                      },
-                      controller: emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      onSaved: (value) {
-                        emailController.text = value!;
-                      },
-                      textInputAction: TextInputAction.next,
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(vertical: 17.h),
-                          border: InputBorder.none,
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(9),
-                              borderSide:
-                                  const BorderSide(color: Color(0xff3949A0))),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(9),
-                              borderSide:
-                                  const BorderSide(color: Color(0xff3949A0))),
-                          filled: true,
-                          fillColor: const Color(0xff3949A0),
-                          hintText: "Username",
-                          prefixIcon: const Icon(
-                            Icons.account_circle_outlined,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                          hintStyle: TextStyle(
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                              fontFamily: 'OpenSans-Hebrew')),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 35.w),
-                  child: SizedBox(
-                    width: 290.w,
-                    height: 43.h,
-                    child: TextFormField(
-                      validator: (value) {
-                        RegExp regex = new RegExp(r'^.{6,}$');
-                        if (value!.isEmpty) {
-                          return ("Password is required for login");
-                        }
-                        if (!regex.hasMatch(value)) {
-                          return ("Enter Valid Password(Min. 6 characters)");
-                        }
-                      },
-                      controller: passwordController,
-                      onSaved: (value) {
-                        passwordController.text = value!;
-                      },
-                      textInputAction: TextInputAction.done,
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(vertical: 17.h),
-                          border: InputBorder.none,
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(9),
-                              borderSide:
-                                  const BorderSide(color: Color(0xff3949A0))),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(9),
-                              borderSide:
-                                  const BorderSide(color: Color(0xff3949A0))),
-                          filled: true,
-                          fillColor: const Color(0xff3949A0),
-                          hintText: "Password",
-                          prefixIcon: const Icon(
-                            Icons.lock_outline_rounded,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                          hintStyle: TextStyle(
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                              fontFamily: 'OpenSans-Hebrew')),
-                      obscureText: true,
-                    ),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 35.w),
+                        child: TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          autofocus: false,
+                          controller: emailController,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return ("Please Enter Your Email");
+                            }
+                            // reg expression for email validation
+                            if (!RegExp(
+                                    "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                .hasMatch(value)) {
+                              return ("Please Enter a valid email");
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            emailController.text = value!;
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.next,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.symmetric(vertical: 17.h),
+                              border: InputBorder.none,
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              filled: true,
+                              fillColor: const Color(0xff3949A0),
+                              hintText: "Email",
+                              prefixIcon: const Icon(
+                                Icons.email_outlined,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                              hintStyle: TextStyle(
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white,
+                                  fontFamily: 'OpenSans-Hebrew')),
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 35.w),
+                        child: TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          autofocus: false,
+                          controller: passwordController,
+                          validator: (value) {
+                            RegExp regex = RegExp(r'^.{6,}$');
+                            if (value!.isEmpty) {
+                              return ("Password is required for login");
+                            }
+                            if (!regex.hasMatch(value)) {
+                              return ("Enter Valid Password(Min. 6 Character)");
+                            }
+                          },
+                          onSaved: (value) {
+                            passwordController.text = value!;
+                          },
+                          textInputAction: TextInputAction.done,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.symmetric(vertical: 17.h),
+                              border: InputBorder.none,
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              filled: true,
+                              fillColor: const Color(0xff3949A0),
+                              hintText: "Password",
+                              prefixIcon: const Icon(
+                                Icons.lock_outline_rounded,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                              hintStyle: TextStyle(
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white,
+                                  fontFamily: 'OpenSans-Hebrew')),
+                          obscureText: true,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 20.h),
@@ -173,8 +183,8 @@ class _LoginState extends State<LoginPage> {
                   height: 32.h,
                 ),
                 Center(
-                  child: TextButton(
-                    onPressed: () {
+                  child: InkWell(
+                    onTap: () {
                       signIn(emailController.text, passwordController.text);
                     },
                     child: Container(
@@ -266,16 +276,41 @@ class _LoginState extends State<LoginPage> {
 
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
-      await _auth
-          .signInWithEmailAndPassword(email: email, password: password)
-          .then((uid) => {
-                Fluttertoast.showToast(msg: "Login Successful"),
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomeScreen())),
-              })
-          .catchError((e) {
-        Fluttertoast.showToast(msg: e!.message);
-      });
+      try {
+        await _auth
+            .signInWithEmailAndPassword(email: email, password: password)
+            .then((uid) => {
+                  Fluttertoast.showToast(msg: "Login Successful"),
+                  Modular.to.navigate('/home')
+                });
+      } on FirebaseAuthException catch (error) {
+        switch (error.code) {
+          case "invalid-email":
+            errorMessage = "Your email address appears to be malformed.";
+
+            break;
+          case "wrong-password":
+            errorMessage = "Your password is wrong.";
+            break;
+          case "user-not-found":
+            errorMessage = "User with this email doesn't exist.";
+            break;
+          case "user-disabled":
+            errorMessage = "User with this email has been disabled.";
+            break;
+          case "too-many-requests":
+            errorMessage = "Too many requests";
+            break;
+          case "operation-not-allowed":
+            errorMessage = "Signing in with Email and Password is not enabled.";
+            break;
+          default:
+            errorMessage = "An undefined Error happened.";
+        }
+        Fluttertoast.showToast(msg: errorMessage!);
+        // ignore: avoid_print
+        print(error.code);
+      }
     }
   }
 }
