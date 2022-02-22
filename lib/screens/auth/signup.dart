@@ -1,4 +1,3 @@
-import 'package:ccpc/screens/home/homescreen.dart';
 import 'package:ccpc/utils/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -427,9 +426,6 @@ class _SignupPageState extends State<SignupPage> {
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully!!!");
 
-    Navigator.pushAndRemoveUntil(
-        (context),
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-        (route) => false);
+    Modular.to.navigate('/home');
   }
 }

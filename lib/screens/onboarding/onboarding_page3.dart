@@ -53,8 +53,8 @@ class OnboardingPage3 extends StatelessWidget {
                       Modular.to.navigate('/login');
                     },
                     child: Container(
-                      height: 33.h,
-                      width: 89.w,
+                      height: 38.h,
+                      width: 97.w,
                       decoration: BoxDecoration(
                           color: const Color.fromRGBO(57, 73, 160, 1),
                           borderRadius: BorderRadius.circular(8.0)),

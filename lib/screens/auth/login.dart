@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -20,6 +21,38 @@ class _LoginState extends State<LoginPage> {
   final _auth = FirebaseAuth.instance;
 
   String? errorMessage;
+
+  Future<UserCredential> googleSignIn() async {
+    GoogleSignIn googleSignIn = GoogleSignIn();
+    GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+    if (googleUser != null) {
+      GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+      if (googleAuth.idToken != null && googleAuth.accessToken != null) {
+        final AuthCredential credential = GoogleAuthProvider.credential(
+            accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+
+        final UserCredential user =
+            await _auth.signInWithCredential(credential);
+
+        await Modular.to.pushNamed('/home');
+
+        return user;
+      } else {
+        throw StateError('Missing Google Auth Token');
+      }
+    } else {
+      throw StateError('Sign in Aborted');
+    }
+  }
+
+  navigateToLogin() async {
+    Modular.to.pushNamed('/login');
+  }
+
+  navigateToRegister() async {
+    Modular.to.pushNamed('/signup');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -229,10 +262,12 @@ class _LoginState extends State<LoginPage> {
                         color: Color(0xff727272)),
                   ),
                 ),
-                SizedBox(height: 35.h),
+                SizedBox(height: 25.h),
                 Center(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      googleSignIn();
+                    },
                     child: Container(
                         height: 43.h,
                         width: 43.w,
