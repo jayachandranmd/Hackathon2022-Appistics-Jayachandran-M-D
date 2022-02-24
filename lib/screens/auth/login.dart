@@ -13,6 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginState extends State<LoginPage> {
+  bool _isObscure = true;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final TextEditingController emailController = TextEditingController();
@@ -183,12 +184,25 @@ class _LoginState extends State<LoginPage> {
                                 color: Colors.white,
                                 size: 20,
                               ),
+                              suffixIcon: IconButton(
+                                color: Colors.white,
+                                icon: Icon(
+                                  _isObscure
+                                      ? Icons.visibility_outlined
+                                      : Icons.visibility_off_outlined,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _isObscure = !_isObscure;
+                                  });
+                                },
+                              ),
                               hintStyle: TextStyle(
                                   fontSize: 10.sp,
                                   fontWeight: FontWeight.w400,
                                   color: Colors.white,
                                   fontFamily: 'OpenSans-Hebrew')),
-                          obscureText: true,
+                          obscureText: _isObscure,
                         ),
                       ),
                     ],
@@ -301,6 +315,21 @@ class _LoginState extends State<LoginPage> {
                     )
                   ],
                 ),
+                SizedBox(height: 40.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 116.w),
+                  child: const Text(
+                    "Developed by Appistics ©",
+                    style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'OpenSans-Hebrew',
+                        color: Color(0xff727272)),
+                  ),
+                ),
+                SizedBox(
+                  height: 12.h,
+                )
               ],
             ),
           ),
@@ -313,7 +342,7 @@ class _LoginState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       try {
         await _auth
-            .signInWithEmailAndPassword(email: email, password: password)
+            .signInWithEmailAndPassword(email: email.trim(), password: password)
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Modular.to.navigate('/home')

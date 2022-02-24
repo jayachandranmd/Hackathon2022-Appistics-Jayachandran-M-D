@@ -1,5 +1,6 @@
 import 'package:ccpc/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Jobassist extends StatefulWidget {
@@ -61,7 +62,10 @@ class _JobassistState extends State<Jobassist> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 13.w),
-                          child: Image.asset('assets/images/industry1.png'),
+                          child: InkWell(
+                              onTap: () => Modular.to.pushNamed('/jobreg'),
+                              child:
+                                  Image.asset('assets/images/industry1.png')),
                         ),
                         Positioned(left: 35, top: 11, child: _text1()),
                       ],

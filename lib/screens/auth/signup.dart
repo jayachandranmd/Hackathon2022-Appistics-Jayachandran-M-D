@@ -14,6 +14,8 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  bool value = false;
+  bool _isObscured = true;
   final _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
   final userNameEditingController = TextEditingController();
@@ -210,6 +212,19 @@ class _SignupPageState extends State<SignupPage> {
                                   color: Colors.white,
                                   size: 20,
                                 ),
+                                suffixIcon: IconButton(
+                                  color: Colors.white,
+                                  icon: Icon(
+                                    _isObscured
+                                        ? Icons.visibility_outlined
+                                        : Icons.visibility_off_outlined,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isObscured = !_isObscured;
+                                    });
+                                  },
+                                ),
                                 hintStyle: TextStyle(
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
@@ -260,6 +275,19 @@ class _SignupPageState extends State<SignupPage> {
                                   color: Colors.white,
                                   size: 20,
                                 ),
+                                suffixIcon: IconButton(
+                                  color: Colors.white,
+                                  icon: Icon(
+                                    _isObscured
+                                        ? Icons.visibility_outlined
+                                        : Icons.visibility_off_outlined,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isObscured = !_isObscured;
+                                    });
+                                  },
+                                ),
                                 hintStyle: TextStyle(
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w400,
@@ -276,12 +304,14 @@ class _SignupPageState extends State<SignupPage> {
                   padding: EdgeInsets.symmetric(horizontal: 22.w),
                   child: Row(
                     children: [
-                      const Checkbox(
-                        value: true,
-                        onChanged: null,
-                        checkColor: Colors.white,
-                        activeColor: Color(0xff3949A0),
-                      ),
+                      Checkbox(
+                          value: value,
+                          onChanged: (value) {
+                            setState(() {
+                              this.value = value!;
+                            });
+                          },
+                          activeColor: const Color(0xff3949A0)),
                       Text(
                         'Agree Terms and Conditions',
                         style: TextStyle(
@@ -358,6 +388,19 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ],
                 ),
+                SizedBox(height: 35.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 116.w),
+                  child: const Text(
+                    "Developed by Appistics ©",
+                    style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'OpenSans-Hebrew',
+                        color: Color(0xff727272)),
+                  ),
+                ),
+                SizedBox(height: 20.h)
               ],
             ),
           ),

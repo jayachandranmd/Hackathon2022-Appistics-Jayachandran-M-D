@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MainscreenPage extends StatefulWidget {
   const MainscreenPage({Key? key}) : super(key: key);
@@ -10,6 +11,38 @@ class MainscreenPage extends StatefulWidget {
 }
 
 class _MainscreenPageState extends State<MainscreenPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  var user = FirebaseAuth.instance.currentUser!;
+  bool isloggedin = false;
+
+  checkAuthentification() async {
+    _auth.authStateChanges().listen((user) {
+      if (user == null) {
+        Modular.to.navigate('/home');
+      }
+    });
+  }
+
+  getUser() async {
+    User? firebaseUser = _auth.currentUser;
+    await firebaseUser?.reload();
+    firebaseUser = _auth.currentUser;
+
+    if (firebaseUser != null) {
+      setState(() {
+        user = firebaseUser!;
+        isloggedin = true;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkAuthentification();
+    getUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,7 +86,7 @@ class _MainscreenPageState extends State<MainscreenPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
-                    'Abhishek Arvind',
+                    "${user.email}",
                     style: head(),
                   ),
                 ),
@@ -148,6 +181,7 @@ class _MainscreenPageState extends State<MainscreenPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: SingleChildScrollView(
+                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -295,6 +329,7 @@ class _MainscreenPageState extends State<MainscreenPage> {
                   height: 21.h,
                 ),
                 SingleChildScrollView(
+                  clipBehavior: Clip.none,
                   scrollDirection: Axis.horizontal,
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -855,6 +890,7 @@ class _MainscreenPageState extends State<MainscreenPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: SingleChildScrollView(
+                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
@@ -1841,69 +1877,29 @@ class _MainscreenPageState extends State<MainscreenPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 34.h,
+                  height: 19.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 21.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Blogs',
-                        style: TextStyle(
-                          fontFamily: "OpenSans-Hebrew",
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16.sp,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () => Modular.to.pushNamed('/blogs'),
-                        child: Text(
-                          'See more',
-                          style: TextStyle(
-                            fontSize: 10.sp,
-                            decoration: TextDecoration.underline,
-                            fontFamily: "OpenSans-Hebrew",
-                            color: const Color(0xffAFAFAF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 24.h,
-                ),
-
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'assets/images/m1.png',
-                          height: 99.h,
-                          width: 172.w,
-                        ),
-                        Image.asset(
-                          'assets/images/m2.png',
-                          height: 99.h,
-                          width: 172.w,
-                        ),
-                        Image.asset(
-                          'assets/images/m3.png',
-                          height: 99.h,
-                          width: 172.w,
-                        ),
-                      ],
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Text(
+                    '202202-Hackathon',
+                    style: TextStyle(
+                      fontFamily: "OpenSans-Hebrew",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16.sp,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 34.h,
+                SizedBox(height: 19.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Image.asset(
+                    'assets/images/hackathon.png',
+                    height: 189.h,
+                    width: 325.w,
+                  ),
                 ),
+                SizedBox(height: 19.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(
@@ -1934,6 +1930,92 @@ class _MainscreenPageState extends State<MainscreenPage> {
                     ),
                   ),
                 ),
+                SizedBox(height: 19.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Blogs',
+                        style: TextStyle(
+                          fontFamily: "OpenSans-Hebrew",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () => Modular.to.pushNamed('/blogs'),
+                        child: Text(
+                          'See more',
+                          style: TextStyle(
+                            fontSize: 10.sp,
+                            decoration: TextDecoration.underline,
+                            fontFamily: "OpenSans-Hebrew",
+                            color: const Color(0xffAFAFAF),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: SingleChildScrollView(
+                    clipBehavior: Clip.none,
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          'assets/images/m1.png',
+                          height: 99.h,
+                          width: 172.w,
+                        ),
+                        SizedBox(width: 14.h),
+                        Image.asset(
+                          'assets/images/m2.png',
+                          height: 99.h,
+                          width: 172.w,
+                        ),
+                        SizedBox(width: 14.h),
+                        Image.asset(
+                          'assets/images/m3.png',
+                          height: 99.h,
+                          width: 172.w,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 19.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Text(
+                    'Placements',
+                    style: TextStyle(
+                      fontFamily: "OpenSans-Hebrew",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16.sp,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 19.h),
+                InkWell(
+                  onTap: () => Modular.to.pushNamed('/placement'),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Image.asset('assets/images/placement.png',
+                        height: 130.h, width: 322.w),
+                  ),
+                ),
+                SizedBox(height: 19.h),
               ],
             ),
           ),

@@ -22,6 +22,7 @@ class _NavBarState extends State<NavBar> {
     const Profile()
   ];
   int currentindex = 2;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

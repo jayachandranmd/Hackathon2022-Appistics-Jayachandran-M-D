@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -9,6 +12,46 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  var user = FirebaseAuth.instance.currentUser!;
+  bool isloggedin = false;
+
+  checkAuthentification() async {
+    _auth.authStateChanges().listen((user) {
+      if (user == null) {
+        Modular.to.navigate('/login');
+      }
+    });
+  }
+
+  getUser() async {
+    User? firebaseUser = _auth.currentUser;
+    await firebaseUser?.reload();
+    firebaseUser = _auth.currentUser;
+
+    if (firebaseUser != null) {
+      setState(() {
+        user = firebaseUser!;
+        isloggedin = true;
+      });
+    }
+  }
+
+  signOut() async {
+    _auth.signOut();
+
+    final googleSignIn = GoogleSignIn();
+    await googleSignIn.signOut();
+    Modular.to.navigate('/login');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkAuthentification();
+    getUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,10 +71,9 @@ class _ProfileState extends State<Profile> {
               SizedBox(
                 height: 39.37.h,
               ),
-              Image.asset(
-                'assets/images/p1.png',
-                width: 136.w,
-                height: 136.h,
+              CircleAvatar(
+                radius: 40.h,
+                backgroundImage: NetworkImage("${user.photoURL}"),
               ),
               SizedBox(height: 25.33.h),
               Container(
@@ -47,7 +89,7 @@ class _ProfileState extends State<Profile> {
                       height: 19.h,
                     ),
                     Text(
-                      'Abu Syeed',
+                      "${user.email}",
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontFamily: 'OpenSans-Hebrew',
@@ -188,23 +230,27 @@ class _ProfileState extends State<Profile> {
                     ),
                     SizedBox(
                       height: 48.h,
-                      child: Row(
-                        children: [
-                          Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 26.5.w),
-                              child: Image.asset(
-                                'assets/images/p4.png',
-                                width: 16.56.w,
-                                height: 14.82.h,
-                              )),
-                          Text(
-                            'Log Out',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'OpenSans-Hebrew',
-                                fontSize: 15.sp),
-                          ),
-                        ],
+                      child: InkWell(
+                        onTap: signOut,
+                        child: Row(
+                          children: [
+                            Padding(
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 26.5.w),
+                                child: Image.asset(
+                                  'assets/images/p4.png',
+                                  width: 16.56.w,
+                                  height: 14.82.h,
+                                )),
+                            Text(
+                              'Log Out',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'OpenSans-Hebrew',
+                                  fontSize: 15.sp),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
