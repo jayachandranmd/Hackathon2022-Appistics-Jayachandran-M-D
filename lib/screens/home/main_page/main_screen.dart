@@ -298,31 +298,34 @@ class _MainscreenPageState extends State<MainscreenPage> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Popular Jobs',
-                        style: TextStyle(
-                          fontFamily: "OpenSans-Hebrew",
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16.sp,
-                        ),
-                      ),
-                      //page to be directed
-                      InkWell(
-                        onTap: () => Modular.to.pushNamed('/popularjobs'),
-                        child: Text(
-                          'See more',
+                  child: InkWell(
+                    onTap: () => Modular.to.pushNamed('/popularjobs'),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Popular Jobs',
                           style: TextStyle(
-                            fontSize: 10.sp,
-                            decoration: TextDecoration.underline,
                             fontFamily: "OpenSans-Hebrew",
-                            color: const Color(0xffAFAFAF),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16.sp,
                           ),
                         ),
-                      )
-                    ],
+                        //page to be directed
+                        InkWell(
+                          onTap: () => Modular.to.pushNamed('/popularjobs'),
+                          child: Text(
+                            'See more',
+                            style: TextStyle(
+                              fontSize: 10.sp,
+                              decoration: TextDecoration.underline,
+                              fontFamily: "OpenSans-Hebrew",
+                              color: const Color(0xffAFAFAF),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -1891,12 +1894,15 @@ class _MainscreenPageState extends State<MainscreenPage> {
                   ),
                 ),
                 SizedBox(height: 19.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: Image.asset(
-                    'assets/images/hackathon.png',
-                    height: 189.h,
-                    width: 325.w,
+                InkWell(
+                  onTap: () => Modular.to.pushNamed('/competition'),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Image.asset(
+                      'assets/images/hackathon.png',
+                      height: 189.h,
+                      width: 325.w,
+                    ),
                   ),
                 ),
                 SizedBox(height: 19.h),
@@ -1945,7 +1951,7 @@ class _MainscreenPageState extends State<MainscreenPage> {
                         ),
                       ),
                       InkWell(
-                        onTap: () => Modular.to.pushNamed('/blogs'),
+                        onTap: () => Modular.to.pushNamed('/blog'),
                         child: Text(
                           'See more',
                           style: TextStyle(
@@ -1968,27 +1974,30 @@ class _MainscreenPageState extends State<MainscreenPage> {
                   child: SingleChildScrollView(
                     clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'assets/images/m1.png',
-                          height: 99.h,
-                          width: 172.w,
-                        ),
-                        SizedBox(width: 14.h),
-                        Image.asset(
-                          'assets/images/m2.png',
-                          height: 99.h,
-                          width: 172.w,
-                        ),
-                        SizedBox(width: 14.h),
-                        Image.asset(
-                          'assets/images/m3.png',
-                          height: 99.h,
-                          width: 172.w,
-                        ),
-                      ],
+                    child: InkWell(
+                      onTap: () => Modular.to.pushNamed('/blog'),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'assets/images/m1.png',
+                            height: 99.h,
+                            width: 172.w,
+                          ),
+                          SizedBox(width: 14.h),
+                          Image.asset(
+                            'assets/images/m2.png',
+                            height: 99.h,
+                            width: 172.w,
+                          ),
+                          SizedBox(width: 14.h),
+                          Image.asset(
+                            'assets/images/m3.png',
+                            height: 99.h,
+                            width: 172.w,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

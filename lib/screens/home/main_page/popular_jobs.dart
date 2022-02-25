@@ -1,4 +1,3 @@
-import 'package:ccpc/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -16,7 +15,6 @@ class _PopularJobState extends State<PopularJob> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        bottomNavigationBar: const NavBar(),
         appBar: AppBar(
           actions: [
             IconButton(

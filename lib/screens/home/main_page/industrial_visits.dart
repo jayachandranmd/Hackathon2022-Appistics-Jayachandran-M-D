@@ -1,4 +1,4 @@
-import 'package:ccpc/screens/home/main_screen.dart';
+import 'package:ccpc/screens/home/main_page/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'map.dart';
@@ -20,72 +20,6 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
       home: Scaffold(
         //bottom nav bar with clipRReact
 
-        bottomNavigationBar: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(18.0),
-              topRight: Radius.circular(18.0),
-            ),
-          ),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(18.0),
-              topRight: Radius.circular(18.0),
-            ),
-            child: BottomNavigationBar(
-              selectedLabelStyle: TextStyle(
-                fontFamily: "Open Sans Hebrew",
-                fontWeight: FontWeight.w700,
-                fontSize: 9.sp,
-              ),
-              unselectedLabelStyle: TextStyle(
-                fontFamily: "Open Sans Hebrew",
-                fontWeight: FontWeight.w700,
-                fontSize: 7.sp,
-              ),
-              currentIndex: currentindex,
-              onTap: (index) => setState(() {
-                currentindex = index;
-              }),
-              fixedColor: Colors.white,
-              items: [
-                BottomNavigationBarItem(
-                  icon: Image.asset('assets/images/i1.png',
-                      height: 15.h, width: 20.77.w),
-                  label: 'Intership',
-                  backgroundColor: const Color(0xff3949A0),
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    'assets/images/i2.png',
-                    height: 15.h,
-                    width: 20.77.w,
-                  ),
-                  label: 'Job Assistance',
-                  backgroundColor: const Color(0xff3949A0),
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset('assets/images/i3.png',
-                      height: 15.h, width: 20.77.w),
-                  label: 'Home',
-                  backgroundColor: const Color(0xff3949A0),
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset('assets/images/i4.png',
-                      height: 15.h, width: 20.77.w),
-                  label: 'Career Guidance',
-                  backgroundColor: const Color(0xff3949A0),
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset('assets/images/i5.png',
-                      height: 15.h, width: 20.77.w),
-                  label: 'Profile',
-                  backgroundColor: const Color(0xff3949A0),
-                ),
-              ],
-            ),
-          ),
-        ),
         appBar: AppBar(
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 6.w),
@@ -111,7 +45,7 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                   child: Text(
                     'INDUSTRY VISITS (IVS)',
                     style: TextStyle(
-                      fontFamily: "Open Sans Hebrew",
+                      fontFamily: "OpenSans-Hebrew",
                       fontWeight: FontWeight.w700,
                       fontSize: 14.sp,
                     ),
@@ -174,7 +108,7 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                               Text(
                                 'We are here !',
                                 style: TextStyle(
-                                  fontFamily: "Open Sans Hebrew",
+                                  fontFamily: "OpenSans-Hebrew",
                                   fontWeight: FontWeight.w700,
                                   fontSize: 20.sp,
                                   color: Colors.white,
@@ -196,7 +130,7 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                                   Text(
                                     'Mumbai,Maharastra',
                                     style: TextStyle(
-                                      fontFamily: "Open Sans Hebrew",
+                                      fontFamily: "OpenSans-Hebrew",
                                       fontWeight: FontWeight.w700,
                                       fontSize: 10.sp,
                                       color: Colors.white,
@@ -220,7 +154,7 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                                   Text(
                                     'Mumbai- Vikhroli ,Maharastra',
                                     style: TextStyle(
-                                      fontFamily: "Open Sans Hebrew",
+                                      fontFamily: "OpenSans-Hebrew",
                                       fontWeight: FontWeight.w700,
                                       fontSize: 10.sp,
                                       color: Colors.white,
@@ -256,7 +190,7 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                   child: Text(
                     'Virtual IV',
                     style: TextStyle(
-                      fontFamily: "Open Sans Hebrew",
+                      fontFamily: "OpenSans-Hebrew",
                       fontWeight: FontWeight.w700,
                       fontSize: 13.sp,
                     ),
@@ -301,7 +235,7 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                   child: Text(
                     'Experiance the work of the day with Virtual\nIndustrial Visit',
                     style: TextStyle(
-                      fontFamily: "Open Sans Hebrew",
+                      fontFamily: "OpenSans-Hebrew",
                       fontWeight: FontWeight.w700,
                       fontSize: 10.sp,
                     ),
@@ -315,7 +249,7 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                   child: Text(
                     'Visit our offices in India ',
                     style: TextStyle(
-                      fontFamily: "Open Sans Hebrew",
+                      fontFamily: "OpenSans-Hebrew",
                       fontWeight: FontWeight.w700,
                       fontSize: 13.sp,
                     ),
@@ -346,6 +280,39 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                     ),
                   ),
                 ),
+                SizedBox(height: 19.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 54.w),
+                  child: Text(
+                    'Contact us to book your slot for visiting our office',
+                    style: TextStyle(
+                      fontFamily: "OpenSans-Hebrew",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 10.sp,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 24.h),
+                Center(
+                  child: Container(
+                    height: 28.h,
+                    width: 196.w,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color(0xff3949A0)),
+                    child: Center(
+                      child: Text(
+                        'welcome@cloudcounselage.com',
+                        style: TextStyle(
+                            fontFamily: 'OpenSans-Hebrew',
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 19.h)
               ],
             ),
           ),

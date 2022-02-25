@@ -1,9 +1,6 @@
-// ignore_for_file: unnecessary_const
-
 import 'package:ccpc/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'job_assistance.dart';
 
 class DescriptionPage extends StatefulWidget {
   const DescriptionPage({Key? key}) : super(key: key);
@@ -21,72 +18,6 @@ class _DescriptionPageState extends State<DescriptionPage> {
       length: 3,
       child: MaterialApp(
         home: Scaffold(
-          bottomNavigationBar: Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(18.0),
-                topRight: Radius.circular(18.0),
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(18.0),
-                topRight: Radius.circular(18.0),
-              ),
-              child: BottomNavigationBar(
-                selectedLabelStyle: TextStyle(
-                  fontFamily: "Open Sans Hebrew",
-                  fontWeight: FontWeight.w700,
-                  fontSize: 9.sp,
-                ),
-                unselectedLabelStyle: TextStyle(
-                  fontFamily: "Open Sans Hebrew",
-                  fontWeight: FontWeight.w700,
-                  fontSize: 7.sp,
-                ),
-                currentIndex: currentindex,
-                onTap: (index) => setState(() {
-                  currentindex = index;
-                }),
-                fixedColor: Colors.white,
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Image.asset('assets/images/i1.png',
-                        height: 15.h, width: 20.77.w),
-                    label: 'Intership',
-                    backgroundColor: const Color(0xff3949A0),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Image.asset(
-                      'assets/images/i2.png',
-                      height: 15.h,
-                      width: 20.77.w,
-                    ),
-                    label: 'Job Assistance',
-                    backgroundColor: const Color(0xff3949A0),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Image.asset('assets/images/i3.png',
-                        height: 15.h, width: 20.77.w),
-                    label: 'Home',
-                    backgroundColor: const Color(0xff3949A0),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Image.asset('assets/images/i4.png',
-                        height: 15.h, width: 20.77.w),
-                    label: 'Career Guidance',
-                    backgroundColor: const Color(0xff3949A0),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Image.asset('assets/images/i5.png',
-                        height: 15.h, width: 20.77.w),
-                    label: 'Profile',
-                    backgroundColor: const Color(0xff3949A0),
-                  ),
-                ],
-              ),
-            ),
-          ),
           appBar: AppBar(
             elevation: 2,
             backgroundColor: Colors.white,
@@ -209,29 +140,21 @@ class _DescriptionPageState extends State<DescriptionPage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                (context),
-                                MaterialPageRoute(
-                                    builder: (context) => const Jobassist()));
-                          },
-                          child: Container(
-                            width: 190.w,
-                            height: 41.h,
-                            decoration: BoxDecoration(
-                              color: const Color(0xff3949A0),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Apply for Jobs",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: 'OpenSans-Hebrew',
-                                ),
+                        child: Container(
+                          width: 190.w,
+                          height: 41.h,
+                          decoration: BoxDecoration(
+                            color: const Color(0xff3949A0),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Apply for Jobs",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'OpenSans-Hebrew',
                               ),
                             ),
                           ),

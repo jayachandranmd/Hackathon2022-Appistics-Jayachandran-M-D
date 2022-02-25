@@ -3,12 +3,14 @@ import 'package:ccpc/screens/auth/login.dart';
 import 'package:ccpc/screens/auth/reset_pass.dart';
 import 'package:ccpc/screens/auth/signup.dart';
 import 'package:ccpc/screens/auth/verification_page.dart';
-import 'package:ccpc/screens/home/blog.dart';
-import 'package:ccpc/screens/home/description_page.dart';
-import 'package:ccpc/screens/home/industrial_visits.dart';
-import 'package:ccpc/screens/home/job_assistance_reg.dart';
-import 'package:ccpc/screens/home/placement_page.dart';
-import 'package:ccpc/screens/home/popular_jobs.dart';
+import 'package:ccpc/screens/home/main_page/blog.dart';
+import 'package:ccpc/screens/home/main_page/competition.dart';
+import 'package:ccpc/screens/home/main_page/description_page.dart';
+import 'package:ccpc/screens/home/main_page/industrial_visits.dart';
+import 'package:ccpc/screens/home/job_assistance/job_assistance_reg.dart';
+import 'package:ccpc/screens/home/internship/online_internship_full.dart';
+import 'package:ccpc/screens/home/main_page/placement_page.dart';
+import 'package:ccpc/screens/home/main_page/popular_jobs.dart';
 import 'package:ccpc/widgets/navbar.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../screens/onboarding/onboarding.dart';
@@ -46,14 +48,20 @@ class BaseNavigation extends Module {
     ChildRoute('/jobdescription',
         child: (context, args) => const DescriptionPage(),
         transition: TransitionType.fadeIn),
-    ChildRoute('/blogs',
-        child: (context, args) => const BlogPage(),
-        transition: TransitionType.fadeIn),
     ChildRoute('/jobreg',
         child: (context, args) => const Jobassisreg(),
         transition: TransitionType.fadeIn),
     ChildRoute('/placement',
         child: (context, args) => const Placement(),
+        transition: TransitionType.fadeIn),
+    ChildRoute('/competition',
+        child: (context, args) => const Competition(),
+        transition: TransitionType.fadeIn),
+    ChildRoute('/blog',
+        child: (context, args) => const BlogPage(),
+        transition: TransitionType.fadeIn),
+    ChildRoute('/internship',
+        child: (context, args) => const OnlineInternshipFull(),
         transition: TransitionType.fadeIn),
   ];
 }

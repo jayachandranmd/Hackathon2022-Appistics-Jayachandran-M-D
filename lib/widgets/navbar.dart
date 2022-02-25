@@ -1,7 +1,7 @@
 import 'package:ccpc/screens/home/career_guidance_page.dart';
-import 'package:ccpc/screens/home/job_assistance.dart';
-import 'package:ccpc/screens/home/main_screen.dart';
-import 'package:ccpc/screens/home/online_internship_full.dart';
+import 'package:ccpc/screens/home/job_assistance/job_assistance.dart';
+import 'package:ccpc/screens/home/main_page/main_screen.dart';
+import 'package:ccpc/screens/home/internship/online_internship.dart';
 import 'package:ccpc/screens/home/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +15,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   final List<Widget> _widgetOptions = <Widget>[
-    const OnlineInternshipFull(),
+    const OnlineInternship(),
     const Jobassist(),
     const MainscreenPage(),
     const CareerGuidance(),

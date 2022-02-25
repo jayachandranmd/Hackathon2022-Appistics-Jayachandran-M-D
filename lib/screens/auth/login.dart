@@ -36,7 +36,7 @@ class _LoginState extends State<LoginPage> {
         final UserCredential user =
             await _auth.signInWithCredential(credential);
 
-        await Modular.to.pushNamed('/home');
+        await Modular.to.pushReplacementNamed('/home');
 
         return user;
       } else {
@@ -45,14 +45,6 @@ class _LoginState extends State<LoginPage> {
     } else {
       throw StateError('Sign in Aborted');
     }
-  }
-
-  navigateToLogin() async {
-    Modular.to.pushNamed('/login');
-  }
-
-  navigateToRegister() async {
-    Modular.to.pushNamed('/signup');
   }
 
   @override

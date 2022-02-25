@@ -1,4 +1,3 @@
-import 'package:ccpc/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +15,6 @@ class _BlogPageState extends State<BlogPage> {
     return MaterialApp(
       home: Scaffold(
         //Bottom nav bar with clipRReact
-        bottomNavigationBar: const NavBar(),
         appBar: AppBar(
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 6.w),

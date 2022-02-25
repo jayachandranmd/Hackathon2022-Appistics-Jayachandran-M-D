@@ -342,6 +342,7 @@ class _JobassistState extends State<Jobassist> {
                       fontFamily: 'OpenSans-Hebrew',
                     ),
                   ),
+                  SizedBox(height: 19.h),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -357,7 +358,7 @@ class _JobassistState extends State<Jobassist> {
                           child: Stack(
                             children: [
                               Image.asset(
-                                'assets/images/ui&ux.png',
+                                'assets/images/ei.png',
                                 height: 183.h,
                                 width: 177.w,
                                 fit: BoxFit.fill,
@@ -374,16 +375,16 @@ class _JobassistState extends State<Jobassist> {
                                   )),
                               Positioned(
                                 bottom: 25,
-                                right: 30,
+                                right: 22,
                                 child: Container(
                                   height: 25.h,
-                                  width: 78.w,
+                                  width: 161.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
                                   child: Center(
                                       child: Text(
-                                    'View Details',
+                                    'Register Now',
                                     style: TextStyle(
                                         fontFamily: 'OpenSans-Hebrew',
                                         fontWeight: FontWeight.w400,
@@ -405,7 +406,7 @@ class _JobassistState extends State<Jobassist> {
                           child: Stack(
                             children: [
                               Image.asset(
-                                'assets/images/fullsatckdev.png',
+                                'assets/images/tw.png',
                                 height: 183.h,
                                 width: 177.w,
                                 fit: BoxFit.fill,
@@ -422,16 +423,16 @@ class _JobassistState extends State<Jobassist> {
                                   )),
                               Positioned(
                                 bottom: 25,
-                                right: 30,
+                                right: 22,
                                 child: Container(
                                   height: 25.h,
-                                  width: 78.w,
+                                  width: 161.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
                                   child: Center(
                                       child: Text(
-                                    'View Details',
+                                    'Register Now',
                                     style: TextStyle(
                                         fontFamily: 'OpenSans-Hebrew',
                                         fontWeight: FontWeight.w400,
@@ -453,23 +454,33 @@ class _JobassistState extends State<Jobassist> {
                           child: Stack(
                             children: [
                               Image.asset(
-                                'assets/images/bigdata.png',
+                                'assets/images/ps.png',
                                 height: 183.h,
                                 width: 177.w,
                                 fit: BoxFit.fill,
                               ),
                               Positioned(
+                                  top: 112,
+                                  left: 73,
+                                  child: Text(
+                                    'Jayachandran',
+                                    style: TextStyle(
+                                      fontFamily: FontFamily.openSansHebrew,
+                                      fontSize: 11.sp,
+                                    ),
+                                  )),
+                              Positioned(
                                 bottom: 25,
-                                right: 30,
+                                right: 22,
                                 child: Container(
                                   height: 25.h,
-                                  width: 78.w,
+                                  width: 161.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
                                   child: Center(
                                       child: Text(
-                                    'View Details',
+                                    'Register Now',
                                     style: TextStyle(
                                         fontFamily: 'OpenSans-Hebrew',
                                         fontWeight: FontWeight.w400,
@@ -491,23 +502,33 @@ class _JobassistState extends State<Jobassist> {
                           child: Stack(
                             children: [
                               Image.asset(
-                                'assets/images/javadev.png',
+                                'assets/images/gs.png',
                                 height: 183.h,
                                 width: 177.w,
                                 fit: BoxFit.fill,
                               ),
                               Positioned(
+                                  top: 112,
+                                  left: 73,
+                                  child: Text(
+                                    'Abhishek',
+                                    style: TextStyle(
+                                      fontFamily: FontFamily.openSansHebrew,
+                                      fontSize: 11.sp,
+                                    ),
+                                  )),
+                              Positioned(
                                 bottom: 25,
-                                right: 30,
+                                right: 22,
                                 child: Container(
                                   height: 25.h,
-                                  width: 78.w,
+                                  width: 161.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
                                   child: Center(
                                       child: Text(
-                                    'View Details',
+                                    'Register Now',
                                     style: TextStyle(
                                         fontFamily: 'OpenSans-Hebrew',
                                         fontWeight: FontWeight.w400,
@@ -522,6 +543,9 @@ class _JobassistState extends State<Jobassist> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 19.h,
+                  )
                 ],
               ),
             ),
@@ -581,20 +605,23 @@ Widget _text1() {
       SizedBox(
         height: 50.h,
       ),
-      Container(
-        height: 22.h,
-        width: 111.w,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: const Color(0xff3949A0),
-        ),
-        child: Center(
-          child: Text(
-            'Register Now',
-            style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 8.sp,
-                color: Colors.white),
+      InkWell(
+        onTap: () => Modular.to.pushNamed('/jobreg'),
+        child: Container(
+          height: 22.h,
+          width: 111.w,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: const Color(0xff3949A0),
+          ),
+          child: Center(
+            child: Text(
+              'Register Now',
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 8.sp,
+                  color: Colors.white),
+            ),
           ),
         ),
       ),
@@ -609,7 +636,7 @@ Widget _text1() {
           fontWeight: FontWeight.w400,
           fontFamily: FontFamily.openSansHebrew,
         ),
-      )
+      ),
     ],
   );
 }
