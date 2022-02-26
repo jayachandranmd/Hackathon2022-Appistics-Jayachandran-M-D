@@ -1,8 +1,6 @@
-import 'package:ccpc/screens/auth/confirmation.dart';
 import 'package:ccpc/screens/auth/login.dart';
 import 'package:ccpc/screens/auth/reset_pass.dart';
 import 'package:ccpc/screens/auth/signup.dart';
-import 'package:ccpc/screens/auth/verification_page.dart';
 import 'package:ccpc/screens/home/main_page/blog.dart';
 import 'package:ccpc/screens/home/main_page/competition.dart';
 import 'package:ccpc/screens/home/main_page/description_page.dart';
@@ -26,15 +24,6 @@ class BaseNavigation extends Module {
         transition: TransitionType.fadeIn),
     ChildRoute('/signup',
         child: (context, args) => const SignupPage(),
-        transition: TransitionType.fadeIn),
-    ChildRoute('/reset',
-        child: (context, args) => const ResetpassPage(),
-        transition: TransitionType.fadeIn),
-    ChildRoute('/verify',
-        child: (context, args) => const VerificationPage(),
-        transition: TransitionType.fadeIn),
-    ChildRoute('/confirm',
-        child: (context, args) => const ConfirmationPage(),
         transition: TransitionType.fadeIn),
     ChildRoute('/home',
         child: (context, args) => const NavBar(),
@@ -62,6 +51,9 @@ class BaseNavigation extends Module {
         transition: TransitionType.fadeIn),
     ChildRoute('/internship',
         child: (context, args) => const OnlineInternshipFull(),
+        transition: TransitionType.fadeIn),
+    ChildRoute('/reset',
+        child: (context, args) => const ResetpassPage(),
         transition: TransitionType.fadeIn),
   ];
 }

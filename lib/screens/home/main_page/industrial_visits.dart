@@ -21,6 +21,16 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
         //bottom nav bar with clipRReact
 
         appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_active_outlined,
+                  color: Colors.black,
+                ))
+          ],
+          elevation: 2,
+          backgroundColor: Colors.white,
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 6.w),
             child: Image.asset(
@@ -29,7 +39,6 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
               height: 33.8.h,
             ),
           ),
-          backgroundColor: Colors.white,
         ),
         body: SingleChildScrollView(
           child: SafeArea(

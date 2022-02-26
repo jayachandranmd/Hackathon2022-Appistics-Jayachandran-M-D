@@ -16,6 +16,14 @@ class _JobassistState extends State<Jobassist> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_active_outlined,
+                  color: Colors.black,
+                ))
+          ],
           elevation: 2,
           backgroundColor: Colors.white,
           leading: Padding(
@@ -29,16 +37,17 @@ class _JobassistState extends State<Jobassist> {
         ),
         body: SafeArea(
           child: SingleChildScrollView(
+            clipBehavior: Clip.none,
             scrollDirection: Axis.vertical,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 13.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 19,
-                  ),
-                  Text(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 19,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Text(
                     'Industrial Events',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
@@ -46,35 +55,37 @@ class _JobassistState extends State<Jobassist> {
                       fontFamily: 'OpenSans-Hebrew',
                     ),
                   ),
-                  const SizedBox(
-                    height: 18,
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                Container(
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                      color: Colors.white.withAlpha(130),
+                      spreadRadius: 0.5,
+                      blurRadius: 60,
+                      offset: const Offset(0, 4),
+                    )
+                  ]),
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: InkWell(
+                            onTap: () => Modular.to.pushNamed('/jobreg'),
+                            child: Image.asset('assets/images/industry1.png')),
+                      ),
+                      Positioned(left: 35, top: 11, child: _text1()),
+                    ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withAlpha(130),
-                        spreadRadius: 0.5,
-                        blurRadius: 60,
-                        offset: const Offset(0, 4),
-                      )
-                    ]),
-                    child: Stack(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 13.w),
-                          child: InkWell(
-                              onTap: () => Modular.to.pushNamed('/jobreg'),
-                              child:
-                                  Image.asset('assets/images/industry1.png')),
-                        ),
-                        Positioned(left: 35, top: 11, child: _text1()),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 22,
-                  ),
-                  Text(
+                ),
+                const SizedBox(
+                  height: 22,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Text(
                     'Basic Skills',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
@@ -82,175 +93,162 @@ class _JobassistState extends State<Jobassist> {
                       fontFamily: 'OpenSans-Hebrew',
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  SingleChildScrollView(
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: SingleChildScrollView(
+                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.w),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 165.h,
-                            width: 175.w,
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withAlpha(70),
-                                  blurRadius: 19,
-                                  spreadRadius: 2,
-                                  offset: const Offset(0, 2),
-                                ),
-                              ],
-                              color: const Color(0xffF3F3F3),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            child: Column(
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: 7.h,
-                                    ),
-                                    Stack(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 10.w),
-                                          child: Image.asset(
-                                              ('assets/images/baseskill1.png')),
-                                        ),
-                                        const Positioned(
-                                            left: 25,
-                                            top: 7,
-                                            child: Text(
-                                              'Curriculum vitae\nAssistance',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w400,
-                                                fontFamily:
-                                                    FontFamily.openSansHebrew,
-                                              ),
-                                            )),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 16.h,
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 7.w),
-                                      child: Container(
-                                        height: 22.h,
-                                        width: 161.w,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          color: const Color(0xff3949A0),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'Register Now',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 10.sp,
-                                                color: Colors.white),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 165.h,
+                          width: 175.w,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffF3F3F3),
+                            borderRadius: BorderRadius.circular(7),
                           ),
-                          SizedBox(
-                            width: 16.w,
-                          ),
-                          Container(
-                            height: 165.h,
-                            width: 175.w,
-                            decoration: BoxDecoration(
-                                color: const Color(0xffF3F3F3),
-                                borderRadius: BorderRadius.circular(7),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withAlpha(70),
-                                    blurRadius: 19,
-                                    spreadRadius: 2,
-                                    offset: const Offset(0, 2),
+                          child: Column(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 7.h,
                                   ),
-                                ]),
-                            child: Column(
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: 7.h,
-                                    ),
-                                    Stack(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 10.w),
-                                          child: Image.asset(
-                                              ('assets/images/baseskill2.png')),
-                                        ),
-                                        const Positioned(
-                                            left: 25,
-                                            top: 7,
-                                            child: Text(
-                                              'Spoken English',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w400,
-                                                fontFamily:
-                                                    FontFamily.openSansHebrew,
-                                              ),
-                                            )),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 16.h,
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 7.w),
-                                      child: Container(
-                                        height: 22.h,
-                                        width: 161.w,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          color: const Color(0xff3949A0),
-                                        ),
-                                        child: Center(
+                                  Stack(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10.w),
+                                        child: Image.asset(
+                                            ('assets/images/baseskill1.png')),
+                                      ),
+                                      const Positioned(
+                                          left: 25,
+                                          top: 7,
                                           child: Text(
-                                            'Register Now',
+                                            'Curriculum vitae\nAssistance',
                                             style: TextStyle(
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 10.sp,
-                                                color: Colors.white),
-                                          ),
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w400,
+                                              fontFamily:
+                                                  FontFamily.openSansHebrew,
+                                            ),
+                                          )),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 16.h,
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 7.w),
+                                    child: Container(
+                                      height: 27.h,
+                                      width: 165.w,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: const Color(0xff3949A0),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Register Now',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 10.sp,
+                                              color: Colors.white),
                                         ),
                                       ),
                                     ),
-                                  ],
-                                )
-                              ],
-                            ),
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(
+                          width: 16.w,
+                        ),
+                        Container(
+                          height: 165.h,
+                          width: 175.w,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffF3F3F3),
+                            borderRadius: BorderRadius.circular(7),
+                          ),
+                          child: Column(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 7.h,
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10.w),
+                                        child: Image.asset(
+                                            ('assets/images/baseskill2.png')),
+                                      ),
+                                      const Positioned(
+                                          left: 25,
+                                          top: 7,
+                                          child: Text(
+                                            'Spoken English',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w400,
+                                              fontFamily:
+                                                  FontFamily.openSansHebrew,
+                                            ),
+                                          )),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 16.h,
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 7.w),
+                                    child: Container(
+                                      height: 27.h,
+                                      width: 165.w,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: const Color(0xff3949A0),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Register Now',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 10.sp,
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Text(
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Text(
                     'Learn without Limits',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
@@ -258,83 +256,89 @@ class _JobassistState extends State<Jobassist> {
                       fontFamily: 'OpenSans-Hebrew',
                     ),
                   ),
-                  const SizedBox(
-                    height: 17,
-                  ),
-                  SingleChildScrollView(
+                ),
+                const SizedBox(
+                  height: 17,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: SingleChildScrollView(
+                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.w),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            height: 120.h,
-                            width: 208.w,
-                            child: Stack(
-                              children: [
-                                Image.asset('assets/images/limit1.png'),
-                                const Positioned(
-                                  bottom: 6,
-                                  left: 9,
-                                  child: Text(
-                                    'Creativity Skills',
-                                    style: TextStyle(
-                                      fontFamily: FontFamily.openSansHebrew,
-                                      color: Colors.white,
-                                    ),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 120.h,
+                          width: 208.w,
+                          child: Stack(
+                            children: [
+                              Image.asset('assets/images/limit1.png'),
+                              const Positioned(
+                                bottom: 9,
+                                left: 9,
+                                child: Text(
+                                  'Creativity Skills',
+                                  style: TextStyle(
+                                    fontFamily: FontFamily.openSansHebrew,
+                                    color: Colors.white,
                                   ),
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
-                          SizedBox(
-                            height: 120.h,
-                            width: 208.w,
-                            child: Stack(
-                              children: [
-                                Image.asset('assets/images/limit2.png'),
-                                const Positioned(
-                                  bottom: 6,
-                                  left: 9,
-                                  child: Text(
-                                    'Management Skills',
-                                    style: TextStyle(
-                                      fontFamily: FontFamily.openSansHebrew,
-                                      color: Colors.white,
-                                    ),
+                        ),
+                        SizedBox(width: 17.w),
+                        SizedBox(
+                          height: 120.h,
+                          width: 208.w,
+                          child: Stack(
+                            children: [
+                              Image.asset('assets/images/limit2.png'),
+                              const Positioned(
+                                bottom: 9,
+                                left: 9,
+                                child: Text(
+                                  'Management Skills',
+                                  style: TextStyle(
+                                    fontFamily: FontFamily.openSansHebrew,
+                                    color: Colors.white,
                                   ),
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
-                          SizedBox(
-                            height: 120.h,
-                            width: 208.w,
-                            child: Stack(
-                              children: [
-                                Image.asset('assets/images/limit3.png'),
-                                const Positioned(
-                                  bottom: 6,
-                                  left: 9,
-                                  child: Text(
-                                    'Accountablity Skills',
-                                    style: TextStyle(
-                                      fontFamily: FontFamily.openSansHebrew,
-                                      color: Colors.white,
-                                    ),
+                        ),
+                        SizedBox(width: 17.w),
+                        SizedBox(
+                          height: 120.h,
+                          width: 208.w,
+                          child: Stack(
+                            children: [
+                              Image.asset('assets/images/limit3.png'),
+                              const Positioned(
+                                bottom: 9,
+                                left: 9,
+                                child: Text(
+                                  'Accountablity Skills',
+                                  style: TextStyle(
+                                    fontFamily: FontFamily.openSansHebrew,
+                                    color: Colors.white,
                                   ),
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 26,
-                  ),
-                  Text(
+                ),
+                const SizedBox(
+                  height: 26,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Text(
                     'Recommended by Professionals',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
@@ -342,8 +346,12 @@ class _JobassistState extends State<Jobassist> {
                       fontFamily: 'OpenSans-Hebrew',
                     ),
                   ),
-                  SizedBox(height: 19.h),
-                  SingleChildScrollView(
+                ),
+                SizedBox(height: 19.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: SingleChildScrollView(
+                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,11 +382,11 @@ class _JobassistState extends State<Jobassist> {
                                     ),
                                   )),
                               Positioned(
-                                bottom: 25,
-                                right: 22,
+                                bottom: 22,
+                                right: 25,
                                 child: Container(
                                   height: 25.h,
-                                  width: 161.w,
+                                  width: 155.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
@@ -422,11 +430,11 @@ class _JobassistState extends State<Jobassist> {
                                     ),
                                   )),
                               Positioned(
-                                bottom: 25,
+                                bottom: 22,
                                 right: 22,
                                 child: Container(
                                   height: 25.h,
-                                  width: 161.w,
+                                  width: 155.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
@@ -470,11 +478,11 @@ class _JobassistState extends State<Jobassist> {
                                     ),
                                   )),
                               Positioned(
-                                bottom: 25,
+                                bottom: 22,
                                 right: 22,
                                 child: Container(
                                   height: 25.h,
-                                  width: 161.w,
+                                  width: 155.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
@@ -518,11 +526,11 @@ class _JobassistState extends State<Jobassist> {
                                     ),
                                   )),
                               Positioned(
-                                bottom: 25,
+                                bottom: 22,
                                 right: 22,
                                 child: Container(
                                   height: 25.h,
-                                  width: 161.w,
+                                  width: 155.w,
                                   decoration: BoxDecoration(
                                       color: const Color(0xff3949A0),
                                       borderRadius: BorderRadius.circular(20)),
@@ -543,11 +551,11 @@ class _JobassistState extends State<Jobassist> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 19.h,
-                  )
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 19.h,
+                )
+              ],
             ),
           ),
         ),
@@ -603,7 +611,7 @@ Widget _text1() {
         ],
       ),
       SizedBox(
-        height: 50.h,
+        height: 40.h,
       ),
       InkWell(
         onTap: () => Modular.to.pushNamed('/jobreg'),

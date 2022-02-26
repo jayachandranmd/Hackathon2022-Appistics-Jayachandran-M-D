@@ -16,6 +16,16 @@ class _OnlineInternshipState extends State<OnlineInternship> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_active_outlined,
+                  color: Colors.black,
+                ))
+          ],
+          elevation: 2,
+          backgroundColor: Colors.white,
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 6.w),
             child: Image.asset(
@@ -24,7 +34,6 @@ class _OnlineInternshipState extends State<OnlineInternship> {
               height: 33.8.h,
             ),
           ),
-          backgroundColor: Colors.white,
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -82,7 +91,8 @@ class _OnlineInternshipState extends State<OnlineInternship> {
                           height: 160.h,
                           width: 322.w,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7)),
+                            borderRadius: BorderRadius.circular(7),
+                          ),
                           child: Card(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(7),

@@ -15,6 +15,14 @@ class _PlacementState extends State<Placement> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_active_outlined,
+                  color: Colors.black,
+                ))
+          ],
           elevation: 2,
           backgroundColor: Colors.white,
           leading: Padding(

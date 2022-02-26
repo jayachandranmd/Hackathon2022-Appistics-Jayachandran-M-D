@@ -21,10 +21,12 @@ class _OnlineInternshipFullState extends State<OnlineInternshipFull> {
               IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.notifications_active,
-                    color: Colors.grey,
+                    Icons.notifications_active_outlined,
+                    color: Colors.black,
                   ))
             ],
+            elevation: 2,
+            backgroundColor: Colors.white,
             leading: Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.w),
               child: Image.asset(
@@ -33,7 +35,6 @@ class _OnlineInternshipFullState extends State<OnlineInternshipFull> {
                 height: 33.8.h,
               ),
             ),
-            backgroundColor: Colors.white,
           ),
           body: SingleChildScrollView(
             scrollDirection: Axis.vertical,

@@ -56,6 +56,26 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+          appBar: AppBar(
+            actions: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.notifications_active_outlined,
+                    color: Colors.black,
+                  ))
+            ],
+            elevation: 2,
+            backgroundColor: Colors.white,
+            leading: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 6.w),
+              child: Image.asset(
+                'assets/images/splash.png',
+                width: 44.w,
+                height: 33.8.h,
+              ),
+            ),
+          ),
           backgroundColor: Colors.white,
           body: Column(
             children: [
@@ -88,13 +108,21 @@ class _ProfileState extends State<Profile> {
                     SizedBox(
                       height: 19.h,
                     ),
-                    Text(
-                      "${user.email}",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'OpenSans-Hebrew',
-                          fontSize: 15.sp),
-                    ),
+                    user.displayName != null
+                        ? Text(
+                            "${user.displayName}",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'OpenSans-Hebrew',
+                                fontSize: 15.sp),
+                          )
+                        : Text(
+                            user.email!.substring(0, user.email!.indexOf('@')),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'OpenSans-Hebrew',
+                                fontSize: 15.sp),
+                          ),
                     SizedBox(
                       height: 17.h,
                     ),

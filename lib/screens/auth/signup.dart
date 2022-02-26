@@ -88,12 +88,19 @@ class _SignupPageState extends State<SignupPage> {
                             decoration: InputDecoration(
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 17.h),
-                                border: InputBorder.none,
-                                enabledBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(9),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff3949A0))),
+                                errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(9),
                                     borderSide: const BorderSide(
                                         color: Color(0xff3949A0))),
                                 focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(9),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff3949A0))),
+                                focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(9),
                                     borderSide: const BorderSide(
                                         color: Color(0xff3949A0))),
@@ -143,12 +150,19 @@ class _SignupPageState extends State<SignupPage> {
                             decoration: InputDecoration(
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 17.h),
-                                border: InputBorder.none,
-                                enabledBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(9),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff3949A0))),
+                                errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(9),
                                     borderSide: const BorderSide(
                                         color: Color(0xff3949A0))),
                                 focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(9),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff3949A0))),
+                                focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(9),
                                     borderSide: const BorderSide(
                                         color: Color(0xff3949A0))),
@@ -191,45 +205,53 @@ class _SignupPageState extends State<SignupPage> {
                             },
                             textInputAction: TextInputAction.next,
                             style: const TextStyle(color: Colors.white),
-                            obscureText: true,
                             decoration: InputDecoration(
-                                contentPadding:
-                                    EdgeInsets.symmetric(vertical: 17.h),
-                                border: InputBorder.none,
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(9),
-                                    borderSide: const BorderSide(
-                                        color: Color(0xff3949A0))),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(9),
-                                    borderSide: const BorderSide(
-                                        color: Color(0xff3949A0))),
-                                filled: true,
-                                fillColor: const Color(0xff3949A0),
-                                hintText: "Password",
-                                prefixIcon: const Icon(
-                                  Icons.lock_outline_rounded,
-                                  color: Colors.white,
-                                  size: 20,
+                              contentPadding:
+                                  EdgeInsets.symmetric(vertical: 17.h),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              filled: true,
+                              fillColor: const Color(0xff3949A0),
+                              hintText: "Password",
+                              prefixIcon: const Icon(
+                                Icons.lock_outline_rounded,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                              suffixIcon: IconButton(
+                                color: Colors.white,
+                                icon: Icon(
+                                  _isObscured
+                                      ? Icons.visibility_outlined
+                                      : Icons.visibility_off_outlined,
                                 ),
-                                suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isObscured = !_isObscured;
+                                  });
+                                },
+                              ),
+                              hintStyle: TextStyle(
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.w400,
                                   color: Colors.white,
-                                  icon: Icon(
-                                    _isObscured
-                                        ? Icons.visibility_outlined
-                                        : Icons.visibility_off_outlined,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _isObscured = !_isObscured;
-                                    });
-                                  },
-                                ),
-                                hintStyle: TextStyle(
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.white,
-                                    fontFamily: 'OpenSans-Hebrew')),
+                                  fontFamily: 'OpenSans-Hebrew'),
+                            ),
+                            obscureText: _isObscured,
                           ),
                         ),
                         SizedBox(
@@ -254,16 +276,23 @@ class _SignupPageState extends State<SignupPage> {
                             },
                             textInputAction: TextInputAction.done,
                             style: const TextStyle(color: Colors.white),
-                            obscureText: true,
+                            obscureText: _isObscured,
                             decoration: InputDecoration(
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 17.h),
-                                border: InputBorder.none,
-                                enabledBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(9),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff3949A0))),
+                                errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(9),
                                     borderSide: const BorderSide(
                                         color: Color(0xff3949A0))),
                                 focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(9),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff3949A0))),
+                                focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(9),
                                     borderSide: const BorderSide(
                                         color: Color(0xff3949A0))),
@@ -330,8 +359,8 @@ class _SignupPageState extends State<SignupPage> {
                   padding: EdgeInsets.symmetric(horizontal: 132.w),
                   child: InkWell(
                     onTap: () {
-                      signUp(emailEditingController.text,
-                          passwordEditingController.text);
+                      signUp(emailEditingController.text.trim(),
+                          passwordEditingController.text.trim());
                     },
                     child: Container(
                       width: 96.w,

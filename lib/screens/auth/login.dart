@@ -111,12 +111,19 @@ class _LoginState extends State<LoginPage> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.symmetric(vertical: 17.h),
-                              border: InputBorder.none,
-                              enabledBorder: OutlineInputBorder(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(9),
                                   borderSide: const BorderSide(
                                       color: Color(0xff3949A0))),
                               focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              focusedErrorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(9),
                                   borderSide: const BorderSide(
                                       color: Color(0xff3949A0))),
@@ -159,12 +166,19 @@ class _LoginState extends State<LoginPage> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.symmetric(vertical: 17.h),
-                              border: InputBorder.none,
-                              enabledBorder: OutlineInputBorder(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(9),
                                   borderSide: const BorderSide(
                                       color: Color(0xff3949A0))),
                               focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff3949A0))),
+                              focusedErrorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(9),
                                   borderSide: const BorderSide(
                                       color: Color(0xff3949A0))),
@@ -201,21 +215,15 @@ class _LoginState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 20.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 35.w),
-                  child: Row(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Modular.to.pushNamed('/reset');
-                        },
-                        child: const Text('Forgot Password',
-                            style: TextStyle(
-                                fontFamily: 'OpenSans-Hebrew',
-                                decoration: TextDecoration.underline,
-                                color: Color(0xff1D4DC8))),
-                      ),
-                    ],
+                InkWell(
+                  onTap: () => Modular.to.pushNamed('/reset'),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 35.w),
+                    child: const Text('Forgot Password',
+                        style: TextStyle(
+                            fontFamily: 'OpenSans-Hebrew',
+                            decoration: TextDecoration.underline,
+                            color: Color(0xff1D4DC8))),
                   ),
                 ),
                 SizedBox(

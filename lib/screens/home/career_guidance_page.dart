@@ -15,6 +15,14 @@ class _CareerGuidanceState extends State<CareerGuidance> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_active_outlined,
+                  color: Colors.black,
+                ))
+          ],
           elevation: 2,
           backgroundColor: Colors.white,
           leading: Padding(
@@ -37,7 +45,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                 ),
                 //Text
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
                     "Today’s Event",
                     style: TextStyle(
@@ -51,30 +59,26 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                 SizedBox(
                   height: 14.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 19.w),
-                  child: Stack(
-                    children: [
-                      Image.asset(
-                        'assets/images/event.png',
-                      ),
-                      Positioned(
-                        left: 20,
-                        top: 10,
-                        child: _textcontainer(),
-                      )
-                    ],
-                  ),
+                Stack(
+                  children: [
+                    Image.asset(
+                      'assets/images/event.png',
+                    ),
+                    Positioned(
+                      left: 20,
+                      top: 10,
+                      child: _textcontainer(),
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: 14.h,
                 ),
                 //Shiva
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 19.w),
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(120),
@@ -93,8 +97,14 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 63.h,
+                      child: const VerticalDivider(
+                        thickness: 0.5,
+                      ),
+                    ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.w),
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -123,12 +133,12 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                   ],
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 30.h,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 19.w),
                   child: Container(
-                    height: 230.h,
+                    height: 250.h,
                     width: 320.w,
                     decoration: BoxDecoration(
                       color: const Color(0xffF3F3F3),
@@ -142,15 +152,15 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                       ],
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 11.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Text(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 15.w),
+                          child: Text(
                             'Description',
                             style: TextStyle(
                               fontFamily: 'OpenSans-Hebrew',
@@ -158,23 +168,24 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12.w),
-                            child: Text(
-                              "Product marketing is a strategic marketing function that bridges the gap between product management and marketing communications. The primary role of a product marketing manager is to define and size target markets and value propositions. Salary ranges from Rs.5.86 LPA for freshers and avg. of Rs.16.85 LPA for experienced professionals.",
-                              style: TextStyle(
-                                color: const Color(0xff777777),
-                                fontFamily: "OpenSans-Hebrew",
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 15.w),
+                          child: Text(
+                            "Product marketing is a strategic marketing function that bridges the gap between product management and marketing communications. The primary role of a product marketing manager is to define and size target markets and value propositions. Salary ranges from Rs.5.86 LPA for freshers and avg. of Rs.16.85 LPA for experienced professionals.",
+                            style: TextStyle(
+                              letterSpacing: 1,
+                              color: Colors.black,
+                              fontFamily: "OpenSans-Hebrew",
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -190,7 +201,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                   height: 13.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 31.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
                     'Activity',
                     style: TextStyle(
@@ -204,7 +215,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                   height: 19.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 31.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(
                     children: [
                       Image.asset(
@@ -247,7 +258,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                   height: 19.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 31.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
                     'A detailed list of our upcoming events. Please register by clicking on the register now button of the respective event.',
                     style: TextStyle(
@@ -262,7 +273,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                   height: 19.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 31.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(
                     children: [
                       Padding(
@@ -304,14 +315,14 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                             width: 94.w,
                             height: 41.h,
                             decoration: BoxDecoration(
-                              color: const Color(0xffDBDBDB),
+                              color: const Color(0xffF3F3F3),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Center(
                               child: Text(
                                 "Share",
                                 style: TextStyle(
-                                  color: Colors.grey,
+                                  color: const Color(0xff777777),
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w700,
                                   fontFamily: 'OpenSans-Hebrew',
@@ -339,7 +350,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                   height: 23.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
                     'Upcoming Events',
                     style: TextStyle(
@@ -356,127 +367,124 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.h),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         //card1
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.h),
-                          child: Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                              Container(
-                                height: 185.h,
-                                width: 183.w,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: const Color(0xffF3F3F3)),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: 19.h,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 14.w),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'Starts at',
-                                                style: TextStyle(
-                                                  color: Colors.grey,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 15.sp,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 4.h,
-                                              ),
-                                              Text(
-                                                '21:00',
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 15.sp,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'SUN',
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 15.sp,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 4.h,
-                                              ),
-                                              Text(
-                                                'March’22',
-                                                style: TextStyle(
-                                                  color: Colors.grey,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 15.sp,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 12.h,
-                                    ),
-                                    Stack(
+                        Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            Container(
+                              height: 185.h,
+                              width: 183.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: const Color(0xffF3F3F3)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 19.h,
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 14.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        Center(
-                                            child: Image.asset(
-                                          'assets/images/big_data.png',
-                                          height: 104.h,
-                                        )),
-                                        Positioned(
-                                          left: 44,
-                                          bottom: 6,
-                                          child: Text(
-                                            'Big Data Analysis',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 12.sp,
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Starts at',
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 15.sp,
+                                              ),
                                             ),
-                                          ),
-                                        )
+                                            SizedBox(
+                                              height: 4.h,
+                                            ),
+                                            Text(
+                                              '21:00',
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 15.sp,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'SUN',
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 15.sp,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 4.h,
+                                            ),
+                                            Text(
+                                              'March’22',
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 15.sp,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ],
-                                    )
-                                  ],
-                                ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 12.h,
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Center(
+                                          child: Image.asset(
+                                        'assets/images/big_data.png',
+                                        height: 104.h,
+                                      )),
+                                      Positioned(
+                                        left: 44,
+                                        bottom: 6,
+                                        child: Text(
+                                          'Big Data Analysis',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12.sp,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
                               ),
-                              Positioned(
-                                child: Image.asset(
-                                  'assets/images/strip.png',
-                                  height: 49.h,
-                                ),
-                                left: -1.2,
-                                top: 19,
+                            ),
+                            Positioned(
+                              child: Image.asset(
+                                'assets/images/strip.png',
+                                height: 49.h,
                               ),
-                            ],
-                          ),
+                              left: -1.2,
+                              top: 19,
+                            ),
+                          ],
                         ),
                         //card2
                         Padding(
@@ -840,7 +848,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                   height: 39.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 31.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
                     'Completed Webminars',
                     style: TextStyle(
@@ -856,7 +864,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

@@ -11,6 +11,7 @@ class MainscreenPage extends StatefulWidget {
 }
 
 class _MainscreenPageState extends State<MainscreenPage> {
+  final re = RegExp('^.*(?=(@))');
   final FirebaseAuth _auth = FirebaseAuth.instance;
   var user = FirebaseAuth.instance.currentUser!;
   bool isloggedin = false;
@@ -52,7 +53,7 @@ class _MainscreenPageState extends State<MainscreenPage> {
             IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.notifications_active,
+                  Icons.notifications_active_outlined,
                   color: Colors.black,
                 ))
           ],
@@ -85,10 +86,15 @@ class _MainscreenPageState extends State<MainscreenPage> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: Text(
-                    "${user.email}",
-                    style: head(),
-                  ),
+                  child: user.displayName != null
+                      ? Text(
+                          "${user.displayName}",
+                          style: head(),
+                        )
+                      : Text(
+                          user.email!.substring(0, user.email!.indexOf('@')),
+                          style: head(),
+                        ),
                 ),
                 SizedBox(
                   height: 20.h,
