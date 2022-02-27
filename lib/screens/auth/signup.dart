@@ -371,10 +371,10 @@ class _SignupPageState extends State<SignupPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text('Sign up',
+                          Text('Sign up',
                               style: TextStyle(
                                   fontFamily: 'OpenSans-Hebrew',
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.white)),
                           SizedBox(
@@ -396,12 +396,17 @@ class _SignupPageState extends State<SignupPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Already a user? ",
-                        style: TextStyle(
-                            fontSize: 11.sp,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'OpenSans-Hebrew',
-                            color: const Color(0xff727272))),
+                    InkWell(
+                      onTap: () {
+                        Modular.to.pushNamed('/login');
+                      },
+                      child: Text("Already a user? ",
+                          style: TextStyle(
+                              fontSize: 11.sp,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'OpenSans-Hebrew',
+                              color: const Color(0xff727272))),
+                    ),
                     InkWell(
                       onTap: () {
                         Modular.to.pushNamed('/login');

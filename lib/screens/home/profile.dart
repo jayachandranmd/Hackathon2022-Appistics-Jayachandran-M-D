@@ -80,7 +80,7 @@ class _ProfileState extends State<Profile> {
           body: Column(
             children: [
               SizedBox(
-                height: 16.h,
+                height: 25.h,
               ),
               Center(
                   child: SizedBox(
@@ -95,18 +95,26 @@ class _ProfileState extends State<Profile> {
                 radius: 40.h,
                 backgroundImage: NetworkImage("${user.photoURL}"),
               ),
-              SizedBox(height: 25.33.h),
+              SizedBox(height: 55.33.h),
               Container(
-                height: 390.h,
+                height: 405.h,
                 width: 292.w,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.white),
+                    color: const Color(0xffF1F1F1),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 7.0,
+                        spreadRadius: 1.0,
+                        offset: Offset(2, 1),
+                      ),
+                    ]),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 19.h,
+                      height: 16.h,
                     ),
                     user.displayName != null
                         ? Text(
@@ -124,19 +132,20 @@ class _ProfileState extends State<Profile> {
                                 fontSize: 15.sp),
                           ),
                     SizedBox(
-                      height: 17.h,
+                      height: 15.h,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.81.w),
                       child: SizedBox(
                         width: 270.37.w,
                         child: const Divider(
-                          thickness: 1.5,
+                          thickness: 1.0,
+                          color: Color(0xff777777),
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: 48.h,
+                      height: 40.h,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -161,14 +170,13 @@ class _ProfileState extends State<Profile> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.81.w),
                       child: SizedBox(
-                        width: 309.w,
+                        width: 270.37.w,
                         child: const Divider(
-                          thickness: 1.5,
-                        ),
+                            thickness: 1.0, color: Color(0xff777777)),
                       ),
                     ),
                     SizedBox(
-                      height: 48.h,
+                      height: 40.h,
                       child: Row(
                         children: [
                           Padding(
@@ -190,14 +198,13 @@ class _ProfileState extends State<Profile> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.81.w),
                       child: SizedBox(
-                        width: 309.w,
+                        width: 270.37.w,
                         child: const Divider(
-                          thickness: 1.5,
-                        ),
+                            thickness: 1.0, color: Color(0xff777777)),
                       ),
                     ),
                     SizedBox(
-                      height: 48.h,
+                      height: 40.h,
                       child: Row(
                         children: [
                           Padding(
@@ -219,14 +226,15 @@ class _ProfileState extends State<Profile> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.81.w),
                       child: SizedBox(
-                        width: 309.w,
+                        width: 270.37.w,
                         child: const Divider(
-                          thickness: 1.5,
+                          thickness: 1.0,
+                          color: Color(0xff777777),
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: 48.h,
+                      height: 40.h,
                       child: Row(
                         children: [
                           Padding(
@@ -250,14 +258,47 @@ class _ProfileState extends State<Profile> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.81.w),
                       child: SizedBox(
-                        width: 309.w,
+                        width: 270.37.w,
                         child: const Divider(
-                          thickness: 1.5,
+                          thickness: 1.0,
+                          color: Color(0xff777777),
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: 48.h,
+                      height: 40.h,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 26.5.w),
+                            child: Image.asset(
+                              'assets/images/p6.png',
+                              height: 16.17.h,
+                              width: 16.w,
+                            ),
+                          ),
+                          Text(
+                            'Settings',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'OpenSans-Hebrew',
+                                fontSize: 15.sp),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.81.w),
+                      child: SizedBox(
+                        width: 270.37.w,
+                        child: const Divider(
+                          thickness: 1.0,
+                          color: Color(0xff777777),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50.h,
                       child: InkWell(
                         onTap: signOut,
                         child: Row(

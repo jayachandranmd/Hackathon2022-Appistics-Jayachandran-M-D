@@ -1,5 +1,6 @@
 import 'package:ccpc/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Competition extends StatefulWidget {
@@ -269,14 +270,18 @@ class _CompetitionState extends State<Competition> {
                                   color: const Color(0xff3949A0),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    "Register Now",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w700,
-                                      fontFamily: 'OpenSans-Hebrew',
+                                child: InkWell(
+                                  onTap: () =>
+                                      Modular.to.pushNamed('/register'),
+                                  child: Center(
+                                    child: Text(
+                                      "Register Now",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: 'OpenSans-Hebrew',
+                                      ),
                                     ),
                                   ),
                                 ),

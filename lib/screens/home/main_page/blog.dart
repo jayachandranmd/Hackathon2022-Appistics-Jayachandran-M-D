@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BlogPage extends StatefulWidget {
@@ -274,14 +275,17 @@ class _BlogPageState extends State<BlogPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xff3949A0)),
-                    child: Center(
-                      child: Text(
-                        'VISIT BLOG NOW',
-                        style: TextStyle(
-                            fontFamily: 'OpenSans-Hebrew',
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
+                    child: InkWell(
+                      onTap: () => Modular.to.pushNamed('/visitblog'),
+                      child: Center(
+                        child: Text(
+                          'VISIT BLOG NOW',
+                          style: TextStyle(
+                              fontFamily: 'OpenSans-Hebrew',
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                   ),

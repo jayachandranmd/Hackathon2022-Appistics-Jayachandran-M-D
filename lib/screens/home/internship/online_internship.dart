@@ -292,17 +292,21 @@ class _OnlineInternshipState extends State<OnlineInternship> {
                                                               10),
                                                       color: const Color(
                                                           0xff3949A0)),
-                                                  child: Center(
-                                                      child: Text(
-                                                    'Apply for Internship',
-                                                    style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSans-Hebrew',
-                                                        fontSize: 9.sp,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: Colors.white),
-                                                  )),
+                                                  child: InkWell(
+                                                    onTap: () => Modular.to
+                                                        .pushNamed('/dmintern'),
+                                                    child: Center(
+                                                        child: Text(
+                                                      'Apply for Internship',
+                                                      style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSans-Hebrew',
+                                                          fontSize: 9.sp,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colors.white),
+                                                    )),
+                                                  ),
                                                 ),
                                               ),
                                               Container(

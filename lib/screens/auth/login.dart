@@ -295,22 +295,28 @@ class _LoginState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have account? ",
-                        style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'OpenSans-Hebrew',
-                            color: Color(0xff727272))),
                     InkWell(
                       onTap: () {
                         Modular.to.pushNamed('/signup');
                       },
-                      child: const Text(
+                      child: Text("Don't have account? ",
+                          style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'OpenSans-Hebrew',
+                              color: const Color(0xff727272))),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Modular.to.pushNamed('/signup');
+                      },
+                      child: Text(
                         'Sign up',
                         style: TextStyle(
+                            fontSize: 11.sp,
                             fontFamily: 'OpenSans-Hebrew',
                             decoration: TextDecoration.underline,
-                            color: Color(0xff1D4DC8)),
+                            color: const Color(0xff1D4DC8)),
                       ),
                     )
                   ],

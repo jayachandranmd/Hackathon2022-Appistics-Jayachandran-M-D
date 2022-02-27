@@ -80,16 +80,7 @@ class _NavBarState extends State<NavBar> {
               )),
             )
           : Scaffold(
-              body: SizedBox.expand(
-                child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: _pageController,
-                  onPageChanged: (index) {
-                    setState(() => _selectedIndex = index);
-                  },
-                  children: _widgetOptions,
-                ),
-              ),
+              body: _widgetOptions[_selectedIndex],
               bottomNavigationBar: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -185,14 +176,9 @@ class _NavBarState extends State<NavBar> {
     );
   }
 
-  void _onItemTapped(int index) {
+  void _onItemTapped(index) {
     setState(() {
       _selectedIndex = index;
-      //
-      //
-      //using this page controller you can make beautiful animation effects
-      _pageController.animateToPage(index,
-          duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
     });
   }
 }

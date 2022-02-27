@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnlineInternshipFull extends StatefulWidget {
@@ -483,13 +484,16 @@ Widget _screen1() {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   color: const Color(0xff3949A0)),
-              child: Center(
-                  child: Text('Apply for Internship',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'OpenSans-Hebrew',
-                          color: Colors.white))),
+              child: InkWell(
+                onTap: () => Modular.to.pushNamed('/dmintern'),
+                child: Center(
+                    child: Text('Apply for Internship',
+                        style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'OpenSans-Hebrew',
+                            color: Colors.white))),
+              ),
             ),
             SizedBox(
               width: 14.w,
@@ -698,15 +702,18 @@ Widget _screen2() {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
               color: const Color(0xff3949A0)),
-          child: Center(
-              child: Text(
-            'Learn Android development',
-            style: TextStyle(
-                fontFamily: 'OpenSans-Hebrew',
-                fontWeight: FontWeight.w400,
-                fontSize: 13.sp,
-                color: Colors.white),
-          )),
+          child: InkWell(
+            onTap: () => Modular.to.pushNamed('/jobassist'),
+            child: Center(
+                child: Text(
+              'Learn Digital Marketing',
+              style: TextStyle(
+                  fontFamily: 'OpenSans-Hebrew',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 13.sp,
+                  color: Colors.white),
+            )),
+          ),
         ),
         SizedBox(
           height: 27.h,
@@ -800,13 +807,16 @@ Widget _screen2() {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   color: const Color(0xff3949A0)),
-              child: Center(
-                  child: Text('Apply for Internship',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'OpenSans-Hebrew',
-                          color: Colors.white))),
+              child: InkWell(
+                onTap: () => Modular.to.pushNamed('/dmintern'),
+                child: Center(
+                    child: Text('Apply for Internship',
+                        style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'OpenSans-Hebrew',
+                            color: Colors.white))),
+              ),
             ),
             SizedBox(
               width: 14.w,
@@ -1109,13 +1119,16 @@ Widget _screen3() {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   color: const Color(0xff3949A0)),
-              child: Center(
-                  child: Text('Apply for Internship',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'OpenSans-Hebrew',
-                          color: Colors.white))),
+              child: InkWell(
+                onTap: () => Modular.to.pushNamed('/dmintern'),
+                child: Center(
+                    child: Text('Apply for Internship',
+                        style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'OpenSans-Hebrew',
+                            color: Colors.white))),
+              ),
             ),
             SizedBox(
               width: 14.w,

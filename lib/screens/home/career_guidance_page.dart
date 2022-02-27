@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +11,42 @@ class CareerGuidance extends StatefulWidget {
 }
 
 class _CareerGuidanceState extends State<CareerGuidance> {
-  int currentindex = 2;
+  static const countdownDuration = Duration(seconds: 58);
+  Duration duration = const Duration();
+  Timer? timer;
+  bool isCountDown = true;
+
+  @override
+  void initState() {
+    super.initState();
+    startTimer(context);
+    reset();
+    WidgetsBinding.instance!.addPostFrameCallback((_) => startTimer(context));
+  }
+
+  void reset() {
+    setState(() {
+      duration = countdownDuration;
+    });
+  }
+
+  void subTime() {
+    const subSeconds = -1;
+    setState(() {
+      final seconds = duration.inSeconds + subSeconds;
+
+      if (seconds < 0) {
+        timer?.cancel();
+      } else {
+        duration = Duration(seconds: seconds);
+      }
+    });
+  }
+
+  void startTimer(BuildContext context) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) => subTime());
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -850,7 +887,7 @@ class _CareerGuidanceState extends State<CareerGuidance> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
-                    'Completed Webminars',
+                    'Completed Webinars',
                     style: TextStyle(
                       fontFamily: 'OpenSans-Hebrew',
                       fontSize: 15.sp,
@@ -1034,65 +1071,102 @@ class _CareerGuidanceState extends State<CareerGuidance> {
       ),
     );
   }
-}
 
-Widget _textcontainer() {
-  return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 11.w),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _textcontainer() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 11.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 18.h,
+          ),
+          Text(
+            "Online WORKSHOP on 'How To\nMaster PRODUCT MARKETING\nIn 2022'",
+            style: TextStyle(
+              fontFamily: 'OpenSans-Hebrew',
+              fontSize: 15.sp,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(
+            height: 9.h,
+          ),
+          Text(
+            'EVENTS BY CLOUD COUNSELAGE PVT. LTD.',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: "OpenSans-Hebrew",
+              fontWeight: FontWeight.w400,
+              fontSize: 11.sp,
+            ),
+          ),
+          SizedBox(
+            height: 11.h,
+          ),
+          SizedBox(
+            height: 55.h,
+            width: 299.w,
+            child: Center(child: buildTime()),
+          ),
+          SizedBox(
+            height: 25.h,
+          ),
+          Text(
+            "Sunday, 12th March’22\n10:00 AM Onwards !",
+            style: TextStyle(
+              fontFamily: 'OpenSans-Hebrew',
+              fontSize: 13.sp,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  buildTime() {
+    return Row(
       children: [
-        SizedBox(
-          height: 18.h,
-        ),
         Text(
-          "Online WORKSHOP on 'How To\nMaster PRODUCT MARKETING\nIn 2022'",
+          '3 :',
           style: TextStyle(
-            fontFamily: 'OpenSans-Hebrew',
-            fontSize: 15.sp,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-          ),
+              fontSize: 27.sp,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans-Hebrew',
+              color: Colors.white),
         ),
-        SizedBox(
-          height: 9.h,
-        ),
+        SizedBox(width: 25.w),
         Text(
-          'EVENTS BY CLOUD COUNSELAGE PVT. LTD.',
+          '13 :',
           style: TextStyle(
-            color: Colors.white,
-            fontFamily: "OpenSans-Hebrew",
-            fontWeight: FontWeight.w400,
-            fontSize: 11.sp,
-          ),
+              fontSize: 27.sp,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans-Hebrew',
+              color: Colors.white),
         ),
-        SizedBox(
-          height: 14.h,
-        ),
-        SizedBox(
-          height: 55.h,
-          width: 299.w,
-          child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                //count down
-              ]),
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
+        SizedBox(width: 25.w),
         Text(
-          "Sunday, 12th March’22\n10:00 AM Onwards !",
+          '45 :',
           style: TextStyle(
-            fontFamily: 'OpenSans-Hebrew',
-            fontSize: 13.sp,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-          ),
+              fontSize: 27.sp,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans-Hebrew',
+              color: Colors.white),
+        ),
+        SizedBox(width: 25.w),
+        Text(
+          '${duration.inSeconds}',
+          style: TextStyle(
+              fontSize: 27.sp,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans-Hebrew',
+              color: Colors.white),
         ),
       ],
-    ),
-  );
+    );
+  }
 }

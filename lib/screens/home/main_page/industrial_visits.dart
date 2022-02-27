@@ -1,5 +1,6 @@
 import 'package:ccpc/screens/home/main_page/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'map.dart';
 
@@ -309,14 +310,17 @@ class _IndustryvistPageState extends State<IndustryvistPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xff3949A0)),
-                    child: Center(
-                      child: Text(
-                        'welcome@cloudcounselage.com',
-                        style: TextStyle(
-                            fontFamily: 'OpenSans-Hebrew',
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
+                    child: InkWell(
+                      onTap: () => Modular.to.pushNamed('/welcome'),
+                      child: Center(
+                        child: Text(
+                          'welcome@cloudcounselage.com',
+                          style: TextStyle(
+                              fontFamily: 'OpenSans-Hebrew',
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
