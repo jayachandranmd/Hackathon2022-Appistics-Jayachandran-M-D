@@ -1,5 +1,5 @@
 Appistics
-Jayachandran M D (Team  Caption)
+Jayachandran M D (Team  Captain)
 
 Team Members:
 Jayachandran M D
